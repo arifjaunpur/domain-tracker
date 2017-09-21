@@ -33,6 +33,17 @@ app.get('/', function(req, res) {
   let domains = getHighesCountDomains(3);
   res.render('index', { title: 'Domain Tracker', domains: domains })
 });
+app.get('/add', function(req, res) {
+  if(req.query.domain) {
+    if(domains[req.query.domain]) {
+	  ++domains[req.query.domain];
+    } else {
+	  domains[req.query.domain] = 1;
+    }
+  }
+  res.redirect('/');
+});
+
 app.get('/api/v1/track', function(req, res) {
   
   if(domains[req.query.domain]) {
