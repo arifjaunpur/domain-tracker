@@ -1,0 +1,21 @@
+html
+  head
+    link(rel="stylesheet" href="bootstrap.min.css")
+    title= title
+  body
+    div(class="container", style="margin-top: 100px;")
+      div(class="panel panel-default")
+        div(class="panel-body")
+          table(class="table table-striped")
+            thead
+              tr
+                th="No."
+                th="Domain"
+                th="Cound"
+            tbody
+              each domainObj,index in domains
+                tr
+                  td=index
+                  td=domainObj.domain
+                  td=domainObj.count
+
